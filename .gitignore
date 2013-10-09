@@ -1,1 +1,3 @@
 *.o
+
+/objective-c/.Makefile.swp
