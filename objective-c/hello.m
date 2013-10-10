@@ -3,8 +3,8 @@
 
 @interface Number: NSObject
 {
-    @public
-        int number;
+@public
+    int number;
 }
 
 - (void)printNum;
