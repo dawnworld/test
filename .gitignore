@@ -1,3 +1,4 @@
 *.o
 *.swp
 *.xcuserstate
+.DS_Store
