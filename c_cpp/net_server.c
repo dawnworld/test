@@ -16,7 +16,11 @@ int process_conn_server(int c_socket)
     {
         length = recv(c_socket, recv_buf, sizeof(recv_buf), 0);
 //        printf("recv length :%d\n", length);
+        if(length == 0)
+            break;
     }
+    printf(" close socket\n");
+    close(c_socket);
     return result;
 }
 
