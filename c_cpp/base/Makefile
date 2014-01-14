@@ -1,0 +1,30 @@
+.SUFFIXES: .c .o
+CC=gcc
+AR = ar
+FLAGS = -g -Wall
+LDFLAGS = -L. -lglib-2.0
+INCLUDES = -I/usr/include/glib-2.0 -I/usr/local/Cellar/glib/2.38.2/include/glib-2.0/ -I/usr/local/Cellar/glib/2.38.2/lib/glib-2.0/include
+
+MAIN_FILE = HashTable.o
+#LIB_NAME=libapplink
+#APP_NAME=app_test
+
+#%.o : %.c
+#	$(CC) -c $(FLAGS) -o $@ $<
+
+all: $(MAIN_FILE)
+
+$(MAIN_FILE) : glibc_hash_table.c
+	$(CC) $(FLAGS) $(INCLUDES) $< -o $@ $(LDFLAGS)
+#main : solibfile staticlib main.o
+#	$(CC) $(FLAGS) $(LDFLAGS) -o $(APP_NAME) main.o
+#
+#solibfile : app_socket_link.c
+#	$(CC) -fPIC --shared $(FLAGS) -o $(LIB_NAME).so $?
+#
+#staticlib : app_socket_link.o
+#	$(AR) -crv -o $(LIB_NAME).a $<
+
+clean:
+	rm -rf *.o *.so *.a *.o.dSYM
+

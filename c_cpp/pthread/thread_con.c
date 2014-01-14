@@ -65,7 +65,7 @@ struct prodcons buffer;
 void *producer(void *data)
 {
     int n;
-    for (n = 0; n < 10000; n++)
+    for (n = 0; n < 10; n++)
     {
         printf("%d --->\n", n);
         put(&buffer, n);

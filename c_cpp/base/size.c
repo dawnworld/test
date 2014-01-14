@@ -15,5 +15,8 @@ int main()
     printf(" my var size is :%d\n", sizeof(my));
     printf(" array size is :%d\n", sizeof(array));
     printf(" p_array size is :%d\n", sizeof(p_array));
+    printf(" long size is %d\n", sizeof(long));
+    printf(" long long size is %d\n", sizeof(long long));
+    printf(" int size is %d\n", sizeof(int));
     return 0;
 }
