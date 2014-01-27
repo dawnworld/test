@@ -2,20 +2,20 @@
 CC=gcc
 AR = ar
 FLAGS = -g -Wall
-LDFLAGS = -L. -lglib-2.0
-INCLUDES = -I/usr/include/glib-2.0 -I/usr/local/Cellar/glib/2.38.2/include/glib-2.0/ -I/usr/local/Cellar/glib/2.38.2/lib/glib-2.0/include
+#LDFLAGS = -L. -lglib-2.0
+#INCLUDES = -I/usr/include/glib-2.0 -I/usr/local/Cellar/glib/2.38.2/include/glib-2.0/ -I/usr/local/Cellar/glib/2.38.2/lib/glib-2.0/include
 
-MAIN_FILE = HashTable.o
+MAIN_FILE = testBin
 #LIB_NAME=libapplink
 #APP_NAME=app_test
 
-#%.o : %.c
-#	$(CC) -c $(FLAGS) -o $@ $<
+%.o : %.c
+	$(CC) -c $(FLAGS) -o $@ $<
 
 all: $(MAIN_FILE)
 
-$(MAIN_FILE) : glibc_hash_table.c
-	$(CC) $(FLAGS) $(INCLUDES) $< -o $@ $(LDFLAGS)
+$(MAIN_FILE) : test_mem_pool.o mem_pool.o
+	$(CC) $(FLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS)
 #main : solibfile staticlib main.o
 #	$(CC) $(FLAGS) $(LDFLAGS) -o $(APP_NAME) main.o
 #
@@ -26,5 +26,5 @@ $(MAIN_FILE) : glibc_hash_table.c
 #	$(AR) -crv -o $(LIB_NAME).a $<
 
 clean:
-	rm -rf *.o *.so *.a *.o.dSYM
+	rm -rf *.o *.so *.a *.o.dSYM testBin
 
