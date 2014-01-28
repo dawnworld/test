@@ -11,7 +11,7 @@
 
 #include "mem_pool.h"
 
-#define INIT_SIZE 10 * 1024 * 1024
+#define INIT_SIZE 1 * 1 * 204
 // split alignment: [0]8, [1]16, [2]24, [3]32, [4]64 ... [15]128
 #define MAX_FREE 16
 
@@ -92,6 +92,10 @@ void * pool_alloc(int count, int size)
     {
         MemObj * result_obj = free_queue_head[index];
         free_queue_head[index] = result_obj->next;
+        
+        if(NULL == free_queue_head[index])
+            free_queue_tail[index] = NULL;
+        
         use_count += align;
 
         return (void *)(result_obj->data);
@@ -135,10 +139,13 @@ void pool_free(void * elem, int size)
     index = get_free_queue_index(size);
 
     MemObj * append_obj = (MemObj *)elem;
-    if(NULL == free_queue_tail[index])
-        free_queue_tail[index] = append_obj;
-
-    if(NULL == free_queue_head)
+    append_obj->next = NULL;
+    if(NULL != free_queue_tail[index])
+        free_queue_tail[index]->next = append_obj;
+    
+    free_queue_tail[index] = append_obj;
+    
+    if(NULL == free_queue_head[index])
         free_queue_head[index] = append_obj;
 
     use_count -= align;
@@ -157,9 +164,7 @@ void destroy_pool(void)
             printf(" next node:%lx\n", tmp_node->segment_start);
         free(cur_node->segment_start);
         free(cur_node);
-        use_count -= INIT_SIZE;
     }
-    use_count += free_end - free_start;
     free_end = NULL;
     free_start = NULL;
 }
