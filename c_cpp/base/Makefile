@@ -26,5 +26,5 @@ $(MAIN_FILE) : test_mem_pool.o mem_pool.o
 #	$(AR) -crv -o $(LIB_NAME).a $<
 
 clean:
-	rm -rf *.o *.so *.a *.o.dSYM testBin
+	rm -rf *.o *.so *.a *.o.dSYM $(MAIN_FILE)
 
