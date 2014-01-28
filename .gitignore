@@ -2,3 +2,5 @@
 *.swp
 *.xcuserstate
 .DS_Store
+
+/c_cpp/base/testBin
