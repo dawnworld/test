@@ -4,3 +4,6 @@
 .DS_Store
 
 /c_cpp/base/testBin
+/c_cpp/base/testBin.dSYM/
+/c_cpp/app/test_app.dSYM/
+/c_cpp/app/test_app
