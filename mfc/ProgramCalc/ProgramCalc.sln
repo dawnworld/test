@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProgramCalc", "ProgramCalc\ProgramCalc.vcproj", "{F7CD7856-5938-4E29-B4B4-430C1F8934AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7CD7856-5938-4E29-B4B4-430C1F8934AE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F7CD7856-5938-4E29-B4B4-430C1F8934AE}.Debug|Win32.Build.0 = Debug|Win32
+		{F7CD7856-5938-4E29-B4B4-430C1F8934AE}.Release|Win32.ActiveCfg = Release|Win32
+		{F7CD7856-5938-4E29-B4B4-430C1F8934AE}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
