@@ -1,0 +1,5 @@
+mpeg-audio.lo: mpeg-audio.c mpeg-audio.h ../ws_symbol_export.h
+
+mpeg-audio.h:
+
+../ws_symbol_export.h:
