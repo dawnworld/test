@@ -17,6 +17,8 @@ typedef union mem_obj
     char  data[1];
 } MemObj;
 
+void  init_pool(void);
+
 /*
  * alloc memory from memory pool
  * @return memory pointer
