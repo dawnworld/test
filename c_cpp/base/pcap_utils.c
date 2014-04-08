@@ -145,8 +145,8 @@ static int write_packet_data(PacketFrame * frame)
 
     pHeader->m_ver = LIT_SHORT(0x45B8);
     pHeader->m_len = LIT_SHORT(pHeader->m_len);
-    pHeader->m_id_more = BIG_INT(0x40CA57);
-    pHeader->m_ttl_more = BIG_INT(0x46B284FD);
+    pHeader->m_id_more = BIG_INT(pHeader->m_id_more);
+    pHeader->m_ttl_more = BIG_INT(pHeader->m_ttl_more);
     pHeader->m_src_ip = LIT_INT(pHeader->m_src_ip);
     pHeader->m_dst_ip = LIT_INT(pHeader->m_dst_ip);
 
