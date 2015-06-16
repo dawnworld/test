@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E57A11AD-5B84-4630-B15E-1C2E8A9CF0D7</string>
+	<key>IDESourceControlProjectName</key>
+	<string>study</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>30D1F807-612D-4820-B623-5994BAC3D4EA</key>
+		<string>https://github.com/dawnworld/test.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>xcode/study/study.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>30D1F807-612D-4820-B623-5994BAC3D4EA</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/dawnworld/test.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>30D1F807-612D-4820-B623-5994BAC3D4EA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>30D1F807-612D-4820-B623-5994BAC3D4EA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>git_test</string>
+		</dict>
+	</array>
+</dict>
+</plist>
