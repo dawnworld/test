@@ -43,7 +43,8 @@ int main(int argc, char** argv)
 	}
 
     ioctl(fd, SIOCGIFADDR, &ifr);
-    inet_pton(AF_INET, if_addr, &((struct sockaddr_in *)&ifr.ifr_ifru.ifru_addr)->sin_addr.s_addr);
+    inet_ntop(AF_INET, &((struct sockaddr_in *)&ifr.ifr_ifru.ifru_addr)->sin_addr.s_addr,
+                       if_addr, sizeof(if_addr));
 
     printf("Interface[%s] %s:%hu\n", if_addr, group_addr, recv_port);
 
@@ -51,21 +52,18 @@ int main(int argc, char** argv)
 	memset(&cli, 0, sizeof(struct sockaddr_in));
 	memset(&mreq, 0, sizeof(struct ip_mreq));
 
-    mreq.imr_interface.s_addr = ((struct sockaddr_in *)&ifr.ifr_ifru.ifru_addr)->sin_addr.s_addr;
 
 	srv.sin_family      = AF_INET;
 	srv.sin_port        = htons(recv_port);
-    srv.sin_addr.s_addr = mreq.imr_interface.s_addr;
-
-    cli.sin_family      = AF_INET;
-    cli.sin_port        = htons(recv_port);
-    cli.sin_addr.s_addr = htonl(INADDR_ANY);
+    srv.sin_addr.s_addr = htonl(INADDR_ANY);
 
 	if(bind(fd, (struct sockaddr *)&srv, sizeof(srv))){
 		printf("bind error\n");
 		return -1;
 	}
 
+    /* config multicast group */
+    mreq.imr_interface.s_addr = ((struct sockaddr_in *)&ifr.ifr_ifru.ifru_addr)->sin_addr.s_addr;
 	if(inet_aton(group_addr, &mreq.imr_multiaddr) < 0)
 	{
 		printf("inet aton");
