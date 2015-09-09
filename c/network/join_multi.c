@@ -43,10 +43,8 @@ int main(int argc, char** argv)
 	}
 
     ioctl(fd, SIOCGIFADDR, &ifr);
-    inet_ntop(AF_INET, &((struct sockaddr_in *)&ifr.ifr_ifru.ifru_addr)->sin_addr.s_addr,
-                       if_addr, sizeof(if_addr));
+    inet_pton(AF_INET, if_addr, &((struct sockaddr_in *)&ifr.ifr_ifru.ifru_addr)->sin_addr.s_addr);
 
-    printf("interface:%x\n", ((struct sockaddr_in *)&ifr.ifr_ifru.ifru_addr)->sin_addr.s_addr);
     printf("Interface[%s] %s:%hu\n", if_addr, group_addr, recv_port);
 
 	memset(&srv, 0, sizeof(struct sockaddr_in));
