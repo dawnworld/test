@@ -21,7 +21,7 @@ def receiver():
     #allow multiple sockets to use the same PORT number
     sock.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
     #Bind to the port that we know will receive multicast data
-    sock.bind((SENDERIP,MYPORT))
+    sock.bind(('0.0.0.0',MYPORT))
     #tell the kernel that we are a multicast socket
     sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 255)
     #Tell the kernel that we want to add ourselves to a multicast group
@@ -30,10 +30,10 @@ def receiver():
         socket.IP_ADD_MEMBERSHIP,
         socket.inet_aton(MYGROUP) + socket.inet_aton(SENDERIP));
     sock.setblocking(0)
-    ts = time.time()
     while 1:
         try:
             data, addr = sock.recvfrom(1024)
+            ts = time.time()
         except socket.error, e:
             pass
         else:
