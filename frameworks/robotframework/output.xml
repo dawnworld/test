@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20151126 13:48:29.958" generator="Robot 2.9.2 (Python 2.7.10 on darwin)">
+<suite source="/Users/dawn/workspace/test/frameworks/robotframework/test.robot" id="s1" name="Test">
+<test id="s1-t1" name="Example">
+<kw name="Login Dss">
+<arguments>
+<arg>172.16.16.143</arg>
+</arguments>
+<kw name="Open Connection" library="Telnet">
+<doc>Opens a new Telnet connection to the given host and port.</doc>
+<arguments>
+<arg>${ip}</arg>
+<arg>port=8888</arg>
+</arguments>
+<msg timestamp="20151126 13:48:30.014" level="INFO">Opening connection to 172.16.16.143:8888 with prompt: None</msg>
+<status status="PASS" endtime="20151126 13:48:30.036" starttime="20151126 13:48:30.014"></status>
+</kw>
+<kw name="Set Newline" library="Telnet">
+<doc>Sets the newline used by `Write` keyword in the current connection.</doc>
+<arguments>
+<arg>\n</arg>
+</arguments>
+<status status="PASS" endtime="20151126 13:48:30.037" starttime="20151126 13:48:30.036"></status>
+</kw>
+<kw name="Set Prompt" library="Telnet">
+<doc>Sets the prompt used by `Read Until Prompt` and `Login` in the current connection.</doc>
+<arguments>
+<arg>[ADMIN]</arg>
+</arguments>
+<status status="PASS" endtime="20151126 13:48:30.038" starttime="20151126 13:48:30.037"></status>
+</kw>
+<kw name="Execute Command" library="Telnet">
+<doc>Executes the given ``command`` and reads, logs, and returns everything until the prompt.</doc>
+<arguments>
+<arg>show</arg>
+</arguments>
+<status status="PASS" endtime="20151126 13:48:30.040" starttime="20151126 13:48:30.038"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20151126 13:48:32.044" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20151126 13:48:32.045" starttime="20151126 13:48:30.040"></status>
+</kw>
+<kw name="Read" library="Telnet">
+<doc>Reads everything that is currently available in the output.</doc>
+<assign>
+<var>${out}</var>
+</assign>
+<msg timestamp="20151126 13:48:32.046" level="INFO">${out} = show
+[ADMIN]
+pid     proc_name    
+----------------------
+1908    dss
+</msg>
+<status status="PASS" endtime="20151126 13:48:32.047" starttime="20151126 13:48:32.045"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${out}</arg>
+</arguments>
+<msg timestamp="20151126 13:48:32.048" level="INFO">show
+[ADMIN]
+pid     proc_name    
+----------------------
+1908    dss
+</msg>
+<status status="PASS" endtime="20151126 13:48:32.048" starttime="20151126 13:48:32.047"></status>
+</kw>
+<kw name="Test" library="UmgmdLibrary">
+<assign>
+<var>${out}</var>
+</assign>
+<msg timestamp="20151126 13:48:32.049" level="INFO">${out} = UmgmdLibrary</msg>
+<status status="PASS" endtime="20151126 13:48:32.049" starttime="20151126 13:48:32.048"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${out}</arg>
+</arguments>
+<msg timestamp="20151126 13:48:32.050" level="INFO">UmgmdLibrary</msg>
+<status status="PASS" endtime="20151126 13:48:32.050" starttime="20151126 13:48:32.049"></status>
+</kw>
+<status status="PASS" endtime="20151126 13:48:32.050" starttime="20151126 13:48:30.013"></status>
+</kw>
+<status status="PASS" endtime="20151126 13:48:32.050" critical="yes" starttime="20151126 13:48:30.012"></status>
+</test>
+<status status="PASS" endtime="20151126 13:48:32.051" starttime="20151126 13:48:29.963"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Test" pass="1">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
